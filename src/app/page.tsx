@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import colors from 'tailwindcss/colors'
 import { useQRCode } from 'next-qrcode';
 
 export default function Home() {
