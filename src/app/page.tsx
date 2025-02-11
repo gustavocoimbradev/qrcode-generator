@@ -5,10 +5,10 @@ import { useQRCode } from 'next-qrcode';
 
 export default function Home() {
 
-  const [URL, setURL] = useState('');
-  const [lastURL, setLastURL] = useState('');
+  const [URL, setURL] = useState<string>('');
+  const [lastURL, setLastURL] = useState<string>('');
   
-  const [generated, setGenerated] = useState(false);
+  const [generated, setGenerated] = useState<boolean>(false);
   const { Canvas } = useQRCode();
 
   const generateQRCode = (e:any) => {
