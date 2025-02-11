@@ -1,23 +1,16 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import colors from 'tailwindcss/colors'
 import { useQRCode } from 'next-qrcode';
 
 export default function Home() {
 
-  const canvasRef = useRef(null);
   const [URL, setURL] = useState('');
   const [lastURL, setLastURL] = useState('');
-  const [width, setWidth] = useState(400); 
+  
   const [generated, setGenerated] = useState(false);
   const { Canvas } = useQRCode();
-
-  useEffect(() => {
-    if (canvasRef.current) {
-      setWidth(canvasRef.current.offsetWidth);
-    }
-  }, []);
 
   const generateQRCode = (e:any) => {
     e.preventDefault();
@@ -29,18 +22,18 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center gap-8 w-[400px] max-w-[99dvw] ">
-      <h1 className="text-2xl font-bold">
+      <h1 className="text-2xl font-bold text-center">
         <span className="text-tertiary">QR Code</span> <span className="text-white">Generator</span>
       </h1>
       {generated?(
-        <div ref={canvasRef} className="rounded-xl overflow-hidden">
+        <div className="rounded-xl overflow-hidden">
             <Canvas
               text={lastURL}
               options={{
                 errorCorrectionLevel: 'M',
                 margin: 3,
                 scale: 4,
-                width: width,
+                width: 400,
                 color: {
                   dark: '#493D9E',
                   light: '#fff',
