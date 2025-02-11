@@ -11,7 +11,7 @@ export default function Home() {
   const [generated, setGenerated] = useState<boolean>(false);
   const { Canvas } = useQRCode();
 
-  const generateQRCode = (e:any) => {
+  const generateQRCode = (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (URL != '') {
       setLastURL(URL);
